@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- TEMPLATE: Update Title for each page -->
+    <title>Wood Street Handyman - Repairs & Home Improvements</title>
+    <!-- TEMPLATE: Update Meta Description for SEO -->
+    <meta name="description" content="[Style 15 Handyman] ProCraft Handyman Services: Skilled, reliable handyman for all your home repair, maintenance, and improvement needs in [Your Service Area].">
+    <!-- TEMPLATE: Favicon links would go here -->
+
+    <!-- Google Fonts & Tailwind CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+    <!-- TEMPLATE: Custom CSS for Style 15: Handyman Service -->
+    <style>
+        /* Docstring: Define color palette for the reliable handyman theme. */
+        :root {
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F4F6F8;       /* Very Light Gray */
+            --bg-card: #FFFFFF;
+            --text-primary: #2C3E50;       /* Dark Slate Blue/Gray */
+            --text-secondary: #566573;     /* Mid Gray */
+            --text-tertiary: #95A5A6;      /* Light Gray */
+            --primary-color: #3498DB;      /* Dependable Medium Blue */
+            --primary-color-dark: #2980B9; /* Darker Medium Blue */
+            --accent-color: #F39C12;       /* Practical Orange */
+            --accent-color-dark: #E67E22;  /* Darker Orange */
+            --border-color: #DDE2E6;       /* Light Gray Border */
+            --shadow-sm: 0 2px 4px rgba(44, 62, 80, 0.06); /* Slate shadow */
+            --shadow-md: 0 4px 10px rgba(44, 62, 80, 0.08);
+            --shadow-lg: 0 10px 25px rgba(44, 62, 80, 0.12);
+        }
+
+        /* Docstring: Base font settings. Inter used throughout. */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-secondary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-primary);
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 0.75em;
+        }
+        h2 { font-size: 2rem; font-weight: 800; margin-bottom: 2.5rem; }
+        @media (min-width: 768px) { h2 { font-size: 2.5rem; } }
+
+        /* Link styling */
+        a { color: var(--primary-color); font-weight: 600; transition: color 0.3s ease; }
+        a:hover { color: var(--primary-color-dark); }
+
+        /* --- Animations (Simple Fades) --- */
+        .fade-in { animation: fadeIn 1s ease-out forwards; opacity: 0; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- Button Styles --- */
+        button, .button {
+             display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+             padding: 0.8rem 1.75rem; border-radius: 6px; font-weight: 600; font-size: 0.95rem;
+             text-align: center; transition: all 0.3s ease; cursor: pointer;
+             border: none; box-shadow: var(--shadow-sm); font-family: 'Inter', sans-serif; white-space: nowrap;
+        }
+         /* Primary Button Style (Blue) */
+        button:not(.button-secondary):not(.button-accent),
+        .button:not(.button-secondary):not(.button-accent) {
+             background-color: var(--primary-color); color: white;
+        }
+        button:not(.button-secondary):not(.button-accent):hover,
+        .button:not(.button-secondary):not(.button-accent):hover {
+            background-color: var(--primary-color-dark); box-shadow: var(--shadow-md); transform: translateY(-2px);
+        }
+        /* Accent Button Style (Orange - Urgent/Key CTA) */
+        .button-accent {
+             background-color: var(--accent-color); color: white; /* White text on orange */
+             font-weight: 700;
+             box-shadow: 0 2px 8px rgba(243, 156, 18, 0.4);
+        }
+        .button-accent:hover {
+            background-color: var(--accent-color-dark); box-shadow: 0 4px 12px rgba(243, 156, 18, 0.5); transform: translateY(-2px);
+        }
+        /* Secondary Button Style (Outline Blue) */
+        .button-secondary {
+             background-color: transparent; color: var(--primary-color);
+             border: 2px solid var(--primary-color); box-shadow: none;
+        }
+        .button-secondary:hover {
+            background-color: rgba(52, 152, 219, 0.08); /* Blue tint */
+            transform: translateY(-2px); box-shadow: var(--shadow-sm);
+        }
+        button:focus, .button:focus { outline: none; box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.4); } /* Blue focus ring */
+        .button-accent:focus { box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.5); } /* Orange focus ring */
+
+        /* --- Service Card Styling (Professional & Clear) --- */
+        .service-card {
+            background-color: var(--bg-card); border-radius: 8px; padding: 2rem;
+            box-shadow: var(--shadow-sm); border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex; flex-direction: column; text-align: center; height: 100%;
+        }
+        .service-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+        .service-card .icon-area { font-size: 2.25rem; color: var(--primary-color); margin-bottom: 1.25rem; }
+        .service-card h3 { font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; }
+        .service-card p { color: var(--text-secondary); font-size: 0.95rem; flex-grow: 1; }
+
+        /* --- Why Choose Us / Trust Icons --- */
+        .trust-item { text-align: center; padding: 1rem; }
+        .trust-item .icon-area {
+            font-size: 2.5rem; color: var(--primary-color); /* Blue icons */ margin-bottom: 1rem;
+            /* Or use accent orange: color: var(--accent-color); */
+        }
+        .trust-item h3 { font-size: 1.1rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; }
+        .trust-item p { font-size: 0.9rem; color: var(--text-secondary); }
+
+        /* --- Service Area List --- */
+        #service-area ul { list-style: none; padding-left: 0; margin-top: 1rem; column-count: 2; column-gap: 2rem; }
+         #service-area li { position: relative; padding-left: 1.75rem; margin-bottom: 0.5rem; color: var(--text-secondary); }
+         #service-area li::before {
+            content: '\f3c5'; /* Font Awesome map-marker-alt */
+            font-family: 'Font Awesome 6 Free'; font-weight: 900;
+            position: absolute; left: 0; top: 0.1em; font-size: 1rem;
+            color: var(--primary-color); /* Blue marker */
+         }
+         @media (max-width: 640px) { #service-area ul { column-count: 1; } }
+
+
+        /* --- Testimonial Card --- */
+        .testimonial-card { background-color: var(--bg-secondary); /* Light gray bg */ padding: 2rem; border-radius: 8px; border-left: 4px solid var(--primary-color); margin-bottom: 2rem; box-shadow: var(--shadow-sm); }
+        .testimonial-card p.quote-text { font-style: italic; color: var(--text-secondary); margin-bottom: 1rem; }
+        .testimonial-card .author-info { font-weight: 600; color: var(--text-primary); }
+        .testimonial-card .author-title { font-size: 0.85rem; color: var(--text-tertiary); }
+
+        /* --- FAQ Styling (Clean) --- */
+        .faq-item { background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 6px; margin-bottom: 1rem; overflow: hidden; box-shadow: var(--shadow-sm); }
+        .faq-question { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 1.25rem 1.5rem; background: none; border: none; text-align: left; font-size: 1.05rem; font-weight: 600; color: var(--text-primary); cursor: pointer; transition: color 0.2s ease; }
+        .faq-question:hover { color: var(--primary-color); }
+        .faq-icon { transition: transform 0.3s ease; color: var(--primary-color); font-weight: bold; font-size: 1.2rem; margin-left: 1rem; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, padding 0.4s ease-out; padding: 0 1.5rem; color: var(--text-secondary); line-height: 1.7; font-size: 0.95rem; border-top: 1px solid transparent; }
+        .faq-item.open { box-shadow: var(--shadow-md); }
+        .faq-item.open .faq-question { color: var(--primary-color); }
+        .faq-item.open .faq-icon { transform: rotate(135deg); }
+        .faq-item.open .faq-answer { padding: 1rem 1.5rem 1.5rem 1.5rem; border-top-color: var(--border-color); }
+
+
+        /* Section Backgrounds */
+         #hero, #why-us, #service-area, #contact { background-color: var(--bg-primary); }
+         #services, #testimonials, #faq { background-color: var(--bg-secondary); }
+
+         /* Hamburger shake */
+         @keyframes shake { 0%{transform:translateX(0)}25%{transform:translateX(-4px)}50%{transform:translateX(4px)}75%{transform:translateX(-4px)}100%{transform:translateX(0)} }
+         .shake-animation { animation: shake 0.4s ease-in-out; }
+
+         /* Modal Styling (Light Theme Base) */
+         .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(44, 62, 80, 0.7); animation: fadeIn 0.3s ease-out; } /* Dark Slate overlay */
+         .modal-content { background-color: #fff; color: var(--text-primary); margin: 10% auto; padding: 2.5rem; border: none; width: 90%; max-width: 500px; border-radius: 8px; box-shadow: var(--shadow-lg); animation: fadeIn 0.4s ease-out; }
+         .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-color); }
+         .modal-header h2 { margin: 0; font-size: 1.4rem; font-weight: 700; color: var(--primary-color); } /* Blue title */
+         .close-button { color: var(--text-tertiary); background: none; border: none; font-size: 2rem; font-weight: 500; cursor: pointer; transition: color 0.2s ease; line-height: 1; padding: 0.25rem; }
+         .close-button:hover, .close-button:focus { color: var(--text-primary); outline: none; }
+         .modal-body { padding-bottom: 1.5rem; }
+         .modal-body form label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-secondary); font-size: 0.9rem; }
+         .modal-body form input[type="text"], .modal-body form input[type="email"], .modal-body form input[type="tel"], .modal-body form textarea { width: 100%; padding: 0.8rem 1rem; margin-bottom: 1rem; border: 1px solid var(--border-color); background-color: var(--bg-secondary); color: var(--text-primary); border-radius: 6px; font-size: 1rem; transition: border-color 0.2s ease, box-shadow 0.2s ease; outline: none; }
+         .modal-body form input::placeholder, .modal-body form textarea::placeholder { color: var(--text-tertiary); }
+         .modal-body form input:focus, .modal-body form textarea:focus { border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15); background-color: #fff; }
+         .modal-body form textarea { resize: vertical; min-height: 100px; }
+         .modal-footer { text-align: right; padding-top: 1rem; border-top: 1px solid var(--border-color); margin-top: 1rem; }
+         /* Feedback Styles adapted */
+         .form-feedback { margin-top: 1rem; padding: 0.75rem 1rem; border-radius: 6px; font-size: 0.9rem; display: none; font-weight: 500; }
+         .form-feedback.success { background-color: #e9fbf5; color: #155724; border: 1px solid #badbcc; display: block; }
+         .form-feedback.error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; display: block; }
+         .form-feedback.loading { background-color: #e7f3ff; color: #0c5460; border: 1px solid #d1ecf1; display: block; }
+
+    </style>
+</head>
+<body class="bg-white font-inter text-gray-700">
+
+    <!-- ========================== -->
+    <!-- Header Section             -->
+    <!-- ========================== -->
+    <header class="bg-white/95 backdrop-blur-sm sticky top-0 z-50 shadow-sm border-b border-gray-100">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- TEMPLATE: Update Logo -->
+            <a href="#" class="flex items-center text-xl font-bold text-[--text-primary]">
+                 <i class="fas fa-tools mr-2 text-[--primary-color]"></i> <!-- Tools Icon -->
+                <!-- TEMPLATE: Update Brand Name -->
+                <span class="font-['Inter',sans-serif] font-extrabold tracking-tight">Wood Streets Handyman</span>
+            </a>
+
+            <!-- TEMPLATE: Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="#services" class="text-gray-600 hover:text-[--primary-color] transition duration-300 font-medium text-sm">Services</a>
+                <a href="#why-us" class="text-gray-600 hover:text-[--primary-color] transition duration-300 font-medium text-sm">Why Us</a>
+                <a href="#service-area" class="text-gray-600 hover:text-[--primary-color] transition duration-300 font-medium text-sm">Service Area</a>
+                <a href="#testimonials" class="text-gray-600 hover:text-[--primary-color] transition duration-300 font-medium text-sm">Reviews</a>
+                <a href="#contact" class="text-gray-600 hover:text-[--primary-color] transition duration-300 font-medium text-sm">Contact</a>
+                <!-- Desktop CTA - Urgent Repair -->
+                <a href="tel:555-FIX-IT-UP" class="button button-accent text-sm !py-2">
+                    <i class="fas fa-phone-volume mr-1"></i> Urgent Repair? Call Now!
+                </a>
+            </nav>
+
+             <!-- Mobile Menu Button -->
+            <div class="md:hidden"> <button id="hamburger-button" class="text-gray-600 focus:outline-none p-2" aria-label="Toggle Navigation" aria-expanded="false" aria-controls="mobile-menu"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg> </button> </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-gray-100 py-3" role="menu">
+             <a href="#services" class="block px-4 py-3 text-gray-600 hover:bg-gray-50 hover:text-[--primary-color] transition duration-300 font-medium" role="menuitem">Services</a>
+             <a href="#why-us" class="block px-4 py-3 text-gray-600 hover:bg-gray-50 hover:text-[--primary-color] transition duration-300 font-medium" role="menuitem">Why Us</a>
+             <a href="#service-area" class="block px-4 py-3 text-gray-600 hover:bg-gray-50 hover:text-[--primary-color] transition duration-300 font-medium" role="menuitem">Service Area</a>
+             <a href="#testimonials" class="block px-4 py-3 text-gray-600 hover:bg-gray-50 hover:text-[--primary-color] transition duration-300 font-medium" role="menuitem">Reviews</a>
+             <a href="#contact" class="block px-4 py-3 text-gray-600 hover:bg-gray-50 hover:text-[--primary-color] transition duration-300 font-medium" role="menuitem">Contact</a>
+             <div class="px-4 py-3 mt-2 border-t border-gray-100">
+                 <a href="tel:555-FIX-IT-UP" class="button button-accent w-full text-center">
+                     <i class="fas fa-phone-volume mr-1"></i> Urgent Repair? Call Now!
+                 </a>
+                 <button id="mobile-quote-button" class="button button-secondary w-full text-center mt-3">Get Free Estimate</button>
+             </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ========================== -->
+        <!-- Hero Section               -->
+        <!-- ========================== -->
+        <section id="hero" class="py-16 md:py-24">
+            <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-center md:text-left fade-in">
+                    <!-- TEMPLATE: Update Phone Number (KEEP THIS LINE) -->
+                    <p class="text-lg font-bold text-[--accent-color] mb-2">CALL NOW: (555) FIX-IT-UP</p>
+                    <!-- TEMPLATE: Update Hero Headline -->
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-5 leading-tight">
+                       Your Trusted Partner for All <span class="text-[--primary-color]">Home Repairs & Improvements.</span>
+                    </h1>
+                    <!-- TEMPLATE: Update Hero Sub-headline -->
+                    <p class="text-lg text-gray-600 mb-10 max-w-xl mx-auto md:mx-0">
+                       From minor fixes to major projects, ProCraft Handyman Services delivers quality workmanship and reliable service you can count on.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+                        <button id="hero-quote-button" class="button">Get My Free Estimate</button>
+                        <a href="#services" class="button button-secondary"><i class="fas fa-list-check mr-1"></i> View Our Services</a>
+                    </div>
+                </div>
+                <div class="hidden md:block fade-in" style="animation-delay: 0.1s;">
+                    <!-- TEMPLATE: Add relevant image (handyman working, tools, well-maintained home) -->
+                     <img src="https://res.cloudinary.com/diyramdn0/image/upload/v1746834872/handyman_hard_at_work_v56tov.jpg" alt="Professional handyman working on a home repair" class="rounded-lg shadow-md object-cover aspect-[4/3]">
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================== -->
+        <!-- Services Section           -->
+        <!-- ========================== -->
+        <section id="services" class="py-16 md:py-24 px-4 bg-[--bg-secondary]">
+            <div class="container mx-auto max-w-6xl">
+                 <h2 class="text-center text-[--text-primary]">Our Handyman Services</h2>
+                 <p class="text-center text-gray-600 max-w-2xl mx-auto mb-16">
+                     No job too small! We handle a wide range of repair, maintenance, and improvement tasks.
+                 </p>
+                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                     <!-- TEMPLATE: Update Service Items -->
+                    <div class="service-card fade-in">
+                         <div class="icon-area"><i class="fas fa-hammer"></i></div>
+                         <h3>General Repairs</h3>
+                         <p>Fixing drywall, doors, windows, fences, and other common household repairs.</p>
+                    </div>
+                     <div class="service-card fade-in" style="animation-delay: 0.1s;">
+                         <div class="icon-area"><i class="fas fa-paint-roller"></i></div>
+                         <h3>Painting & Staining</h3>
+                         <p>Interior and exterior painting, touch-ups, and staining for a fresh look.</p>
+                    </div>
+                    <div class="service-card fade-in" style="animation-delay: 0.2s;">
+                        <div class="icon-area"><i class="fas fa-lightbulb"></i></div>
+                         <h3>Minor Electrical</h3>
+                         <p>Replacing light fixtures, ceiling fans, outlets, and switches safely.</p>
+                    </div>
+                    <div class="service-card fade-in" style="animation-delay: 0.3s;">
+                        <div class="icon-area"><i class="fas fa-wrench"></i></div>
+                         <h3>Minor Plumbing</h3>
+                         <p>Fixing leaky faucets, running toilets, installing new fixtures, and clearing small clogs.</p>
+                    </div>
+                     <div class="service-card fade-in" style="animation-delay: 0.4s;">
+                         <div class="icon-area"><i class="fas fa-trowel-bricks"></i></div> <!-- Changed from fa-tools -->
+                         <h3>Carpentry & Assembly</h3>
+                         <p>Bookshelf building, furniture assembly, trim work, and custom small projects.</p>
+                    </div>
+                     <div class="service-card fade-in" style="animation-delay: 0.5s;">
+                         <div class="icon-area"><i class="fas fa-person-digging"></i></div> <!-- Changed from fa-shipping-fast -->
+                         <h3>Gutter Cleaning & Repair</h3>
+                         <p>Ensuring your gutters are clear and functioning properly to prevent water damage.</p>
+                    </div>
+                     <div class="service-card fade-in" style="animation-delay: 0.6s;">
+                         <div class="icon-area"><i class="fas fa-screwdriver-wrench"></i></div> <!-- Changed from fa-faucet -->
+                         <h3>Fixture Installation</h3>
+                         <p>Installing shelves, curtain rods, TV mounts, grab bars, and more.</p>
+                    </div>
+                      <div class="service-card fade-in" style="animation-delay: 0.7s;">
+                          <div class="icon-area"><i class="fas fa-house-chimney-crack text-[--accent-color]"></i></div> <!-- Accent color -->
+                          <h3 class="!text-[--accent-color]">Urgent Small Repairs</h3> <!-- Accent color -->
+                          <p>Quick response for those pressing small jobs that can't wait. Call us!</p>
+                      </div>
+                 </div>
+             </div>
+        </section>
+
+        <!-- ========================== -->
+        <!-- Why Choose Us Section      -->
+        <!-- ========================== -->
+         <section id="why-us" class="py-16 md:py-24 px-4">
+             <div class="container mx-auto max-w-5xl">
+                 <h2 class="text-center text-[--text-primary]">Why Choose ProCraft Handyman?</h2>
+                 <p class="text-center text-gray-600 max-w-2xl mx-auto mb-16">
+                     We are committed to providing top-quality work and exceptional customer service.
+                 </p>
+                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                     <!-- TEMPLATE: Update Trust Items -->
+                    <div class="trust-item fade-in">
+                         <div class="icon-area"><i class="fas fa-user-tie"></i></div> <!-- Changed from fa-certificate -->
+                         <h3>Skilled & Experienced</h3>
+                         <p>Our handymen are knowledgeable professionals with years of experience.</p>
+                    </div>
+                     <div class="trust-item fade-in" style="animation-delay: 0.1s;">
+                         <div class="icon-area"><i class="fas fa-clock"></i></div> <!-- Changed from fa-users-cog -->
+                         <h3>Reliable & Punctual</h3>
+                         <p>We respect your time, show up as scheduled, and work efficiently.</p>
+                    </div>
+                    <div class="trust-item fade-in" style="animation-delay: 0.2s;">
+                        <div class="icon-area"><i class="fas fa-handshake-angle"></i></div> <!-- Changed from fa-receipt -->
+                         <h3>Fair & Transparent Pricing</h3>
+                         <p>Honest, upfront estimates with no surprise fees. Quality work at a fair price.</p>
+                    </div>
+                    <div class="trust-item fade-in" style="animation-delay: 0.3s;">
+                        <div class="icon-area"><i class="fas fa-check-double"></i></div> <!-- Changed from fa-check-circle -->
+                         <h3>Satisfaction Guaranteed</h3>
+                         <p>We stand behind our workmanship and aim for your complete satisfaction.</p>
+                    </div>
+                 </div>
+             </div>
+         </section>
+
+
+        <!-- ========================== -->
+        <!-- Service Area Section       -->
+        <!-- ========================== -->
+        <section id="service-area" class="py-16 md:py-24 px-4">
+            <div class="container mx-auto text-center max-w-4xl fade-in">
+                <h2 class="text-[--text-primary]">Serving [Your City/Region] & Beyond</h2>
+                <p class="text-gray-600 max-w-xl mx-auto mb-10">We offer our reliable handyman services to homeowners and businesses in:</p>
+                <!-- TEMPLATE: Update List of Locations/Areas -->
+                <div class="bg-white p-6 rounded-lg shadow-md border border-[--border-color] max-w-2xl mx-auto">
+                    <ul>
+                        <li>Your Main City</li>
+                        <li>North Suburbia</li>
+                        <li>Eastwood Community</li>
+                        <li>Westside Neighborhood</li>
+                        <li>Old Town District</li>
+                        <li>River Valley Homes</li>
+                        <li>South County Area</li>
+                        <li>Parkside Residences</li>
+                    </ul>
+                </div>
+                <p class="mt-6 text-gray-500 text-sm">
+                    Not sure if we cover your area? <a href="#contact" class="font-semibold hover:underline">Contact us</a> to find out!
+                </p>
+            </div>
+        </section>
+
+        <!-- ========================== -->
+        <!-- Testimonials Section       -->
+        <!-- ========================== -->
+        <section id="testimonials" class="py-16 md:py-24 px-4 bg-[--bg-secondary]">
+             <div class="container mx-auto max-w-3xl">
+                <h2 class="text-center text-[--text-primary]">What Our Clients Say</h2>
+                <div class="mt-12 space-y-6">
+                     <!-- TEMPLATE: Update Testimonials -->
+                    <div class="testimonial-card fade-in">
+                         <p class="quote-text">"ProCraft Handyman fixed a long list of nagging repairs around my house quickly and professionally. Their work is excellent, and they were very courteous. Highly recommended!"</p>
+                         <p class="author-info">Mark P.</p>
+                         <p class="author-title">Homeowner, [City Name]</p>
+                     </div>
+                     <div class="testimonial-card fade-in" style="animation-delay: 0.15s;">
+                         <p class="quote-text">"Needed some shelves assembled and a leaky faucet fixed. They handled both jobs perfectly and were very reasonably priced. Will definitely call them again!"</p>
+                         <p class="author-info">Susan B.</p>
+                         <p class="author-title">Resident, [Neighborhood Name]</p>
+                     </div>
+                 </div>
+             </div>
+        </section>
+
+         <!-- ========================== -->
+        <!-- FAQ Section                -->
+        <!-- ========================== -->
+        <section id="faq" class="py-16 md:py-24 px-4 bg-[--bg-secondary]">
+            <div class="container mx-auto max-w-3xl fade-in">
+                <h2 class="text-center text-[--text-primary]">Common Handyman Questions</h2>
+                <div>
+                    <!-- TEMPLATE: Update FAQ Items -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1"> <span>What kind of jobs do you typically handle?</span> <span class="faq-icon">+</span> </button>
+                        <div id="faq-answer-1" class="faq-answer" role="region" aria-hidden="true"> <p>We handle a wide variety of home repairs and improvements, including minor plumbing and electrical, carpentry, painting, assembly, drywall repair, fixture installation, and general maintenance tasks. If you're unsure, just give us a call!</p> </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2"> <span>Are you licensed and insured?</span> <span class="faq-icon">+</span> </button>
+                        <div id="faq-answer-2" class="faq-answer" role="region" aria-hidden="true"> <p>Yes, ProCraft Handyman Services is fully insured for your peace of mind. We carry general liability insurance. Licensing requirements vary by location and job type; we comply with all local regulations.</p> </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3"> <span>How do you charge for your services?</span> <span class="faq-icon">+</span> </button>
+                        <div id="faq-answer-3" class="faq-answer" role="region" aria-hidden="true"> <p>We typically provide a free estimate for most jobs. For smaller tasks or diagnostic work, we may have an hourly rate with a minimum service call charge. We always aim for transparent pricing, so you'll know the cost before we begin any work.</p> </div>
+                    </div>
+                     <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4"> <span>Do I need to provide materials?</span> <span class="faq-icon">+</span> </button>
+                        <div id="faq-answer-4" class="faq-answer" role="region" aria-hidden="true"> <p>You can provide materials if you prefer, or we can source them for you. We'll discuss this during the estimate process. If we supply materials, the cost will be clearly itemized.</p> </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================== -->
+        <!-- Contact Section            -->
+        <!-- ========================== -->
+        <section id="contact" class="py-16 md:py-24 px-4">
+             <div class="container mx-auto max-w-4xl text-center">
+                 <h2 class="text-[--text-primary]">Get Your Home Projects Done Right</h2>
+                 <p class="text-lg text-gray-600 mb-10">
+                     Request your free estimate online or give us a call. We're ready to help!
+                 </p>
+                 <div class="bg-white p-8 md:p-12 rounded-lg shadow-lg max-w-2xl mx-auto text-left fade-in border border-[--border-color]">
+                     <h3 class="text-xl font-semibold text-center mb-6">Request Your Free Estimate</h3>
+                     <form class="space-y-5" action="#" method="POST" id="contact-form-main">
+                         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                             <div>
+                                 <label for="contact-name" class="block text-gray-600 text-sm font-semibold mb-1">Name</label>
+                                 <input type="text" id="contact-name" name="name" required class="appearance-none border border-gray-300 rounded-md w-full py-2.5 px-3 bg-gray-50 text-gray-800 leading-tight focus:outline-none focus:border-[--primary-color] focus:bg-white">
+                             </div>
+                              <div>
+                                 <label for="contact-phone" class="block text-gray-600 text-sm font-semibold mb-1">Phone</label>
+                                 <input type="tel" id="contact-phone" name="phone" required class="appearance-none border border-gray-300 rounded-md w-full py-2.5 px-3 bg-gray-50 text-gray-800 leading-tight focus:outline-none focus:border-[--primary-color] focus:bg-white">
+                             </div>
+                         </div>
+                         <div>
+                             <label for="contact-email" class="block text-gray-600 text-sm font-semibold mb-1">Email (Optional)</label>
+                             <input type="email" id="contact-email" name="email" class="appearance-none border border-gray-300 rounded-md w-full py-2.5 px-3 bg-gray-50 text-gray-800 leading-tight focus:outline-none focus:border-[--primary-color] focus:bg-white">
+                         </div>
+                         <div>
+                             <label for="contact-message" class="block text-gray-600 text-sm font-semibold mb-1">Brief Description of Project/Repair</label>
+                             <textarea id="contact-message" name="message" rows="4" required class="appearance-none border border-gray-300 rounded-md w-full py-2.5 px-3 bg-gray-50 text-gray-800 leading-tight focus:outline-none focus:border-[--primary-color] focus:bg-white resize-none" placeholder="e.g., Repair leaky kitchen faucet, Install new ceiling fan, Paint living room..."></textarea>
+                         </div>
+                         <div class="text-center pt-2">
+                             <button type="submit" class="button w-full">Submit Estimate Request</button>
+                         </div>
+                     </form>
+                 </div>
+                  <div class="mt-12 text-gray-600">
+                     <p class="font-semibold text-lg">For Urgent Repairs or to Speak With Us Directly, Call:</p>
+                     <!-- TEMPLATE: Update Phone -->
+                     <p class="mt-2 text-2xl font-bold">
+                        <a href="tel:555-FIX-IT-UP" class="text-[--accent-color] hover:text-[--accent-color-dark]">(555) FIX-IT-UP</a>
+                     </p>
+                 </div>
+             </div>
+        </section>
+    </main>
+
+    <!-- ========================== -->
+    <!-- Footer Section             -->
+    <!-- ========================== -->
+    <footer class="bg-[--bg-secondary] text-[--text-secondary] py-8 border-t border-[--border-color]">
+        <div class="container mx-auto px-4 text-center text-sm">
+             <!-- TEMPLATE: Update Copyright Name & Location -->
+            <p>© <span id="current-year"></span> ProCraft Handyman Services. Insured. Serving [Your Main City] & Surrounding Areas.</p>
+        </div>
+    </footer>
+
+    <!-- ========================== -->
+    <!-- Modals (Estimate Request)   -->
+    <!-- ========================== -->
+    <div id="quote-modal" class="modal" aria-hidden="true" aria-labelledby="quote-modal-title" aria-modal="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="quote-modal-title">Request Free Estimate</h2>
+                <button class="close-button" aria-label="Close modal">×</button>
+            </div>
+            <div class="modal-body">
+                 <p class="text-sm text-gray-600 mb-4">Tell us about your project! Fill out the form below and we'll contact you to discuss details and provide an estimate.</p>
+                <form id="quote-form" novalidate>
+                    <label for="modal-name">Name:</label>
+                    <input type="text" id="modal-name" name="name" required aria-required="true">
+                    <label for="modal-phone">Phone:</label>
+                    <input type="tel" id="modal-phone" name="phone" required aria-required="true">
+                    <label for="modal-email">Email (Optional):</label>
+                    <input type="email" id="modal-email" name="email">
+                    <label for="modal-service">Project / Repair Details:</label>
+                    <textarea id="modal-service" name="details" required aria-required="true" rows="4" placeholder="e.g., Fix hole in drywall, Assemble flat-pack furniture, Need quote for bathroom refresh..."></textarea>
+                    <div id="quote-feedback" class="form-feedback"></div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="submit-quote" type="submit" form="quote-form" class="button w-full">Submit Estimate Request</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ========================== -->
+    <!-- JavaScript (Core Logic)    -->
+    <!-- ========================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Update Footer Year ---
+            const currentYear = new Date().getFullYear();
+            const yearSpan = document.getElementById('current-year');
+            if (yearSpan) yearSpan.textContent = currentYear;
+
+            // --- Modal Handling ---
+            const quoteModal = document.getElementById('quote-modal');
+            const openQuoteButtons = document.querySelectorAll('#hero-quote-button, #mobile-quote-button');
+            const closeButtons = document.querySelectorAll('.modal .close-button');
+
+            const openModal = (modalElement) => {
+                if (!modalElement) return;
+                modalElement.style.display = 'block';
+                modalElement.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+                const firstFocusableElement = modalElement.querySelector('input, button, textarea, select, a[href]');
+                if (firstFocusableElement) firstFocusableElement.focus();
+            };
+
+            const closeModal = (modalElement) => {
+                if (!modalElement) return;
+                const submitButton = modalElement.querySelector('button[type="submit"]');
+                if (submitButton && submitButton.textContent.toLowerCase().includes('sending')) {
+                    return;
+                }
+                modalElement.style.display = 'none';
+                modalElement.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            };
+
+            openQuoteButtons.forEach(button => button.addEventListener('click', (e) => { e.preventDefault(); openModal(quoteModal); }));
+            closeButtons.forEach(button => button.addEventListener('click', () => closeModal(button.closest('.modal'))));
+            window.addEventListener('click', (event) => { if (event.target === quoteModal) closeModal(quoteModal); });
+            window.addEventListener('keydown', (event) => { if (event.key === 'Escape' && quoteModal && quoteModal.style.display === 'block') closeModal(quoteModal); });
+
+            // --- Mobile Menu Toggle ---
+            const hamburgerButton = document.getElementById('hamburger-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a, button');
+            if (hamburgerButton && mobileMenu) {
+                hamburgerButton.addEventListener('click', () => {
+                    const isExpanded = hamburgerButton.getAttribute('aria-expanded') === 'true';
+                    mobileMenu.classList.toggle('hidden');
+                    hamburgerButton.setAttribute('aria-expanded', String(!isExpanded));
+                    hamburgerButton.classList.add('shake-animation');
+                    setTimeout(() => { hamburgerButton.classList.remove('shake-animation'); }, 400);
+                });
+                mobileMenuLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (link.tagName === 'A' || link.id === 'mobile-quote-button' || link.classList.contains('button-accent')) {
+                            mobileMenu.classList.add('hidden');
+                            hamburgerButton.setAttribute('aria-expanded', 'false');
+                        }
+                    });
+                });
+            }
+
+            // --- Quote Form Submission (Estimate Request) ---
+            const quoteForm = document.getElementById('quote-form');
+            const submitQuoteButton = document.getElementById('submit-quote');
+            const feedbackDiv = document.getElementById('quote-feedback');
+            if (quoteForm && submitQuoteButton && feedbackDiv) {
+                 quoteForm.addEventListener('submit', (event) => {
+                     event.preventDefault();
+                     const name = quoteForm.querySelector('#modal-name').value.trim();
+                     const phone = quoteForm.querySelector('#modal-phone').value.trim();
+                     const details = quoteForm.querySelector('#modal-service').value.trim();
+                     if (!name || !phone || !details) { feedbackDiv.textContent = 'Please fill in Name, Phone, and Project Details.'; feedbackDiv.className = 'form-feedback error'; return; }
+
+                     feedbackDiv.textContent = 'Submitting your request...'; feedbackDiv.className = 'form-feedback loading'; submitQuoteButton.disabled = true; submitQuoteButton.textContent = 'Sending...';
+                     setTimeout(() => { // Simulate API call
+                         feedbackDiv.textContent = 'Thank you! Your estimate request is submitted. We will contact you soon.';
+                         feedbackDiv.className = 'form-feedback success';
+                         quoteForm.reset();
+                         setTimeout(() => {
+                             submitQuoteButton.disabled = false; submitQuoteButton.textContent = 'Submit Estimate Request';
+                             // closeModal(quoteModal); // Optionally close
+                         }, 2500);
+                     }, 1500);
+                 });
+            }
+
+             // --- Contact Form Submission (Main Page Form) ---
+             const contactFormMain = document.getElementById('contact-form-main');
+             if (contactFormMain) {
+                 contactFormMain.addEventListener('submit', (event) => {
+                     event.preventDefault();
+                     const name = contactFormMain.querySelector('#contact-name').value.trim();
+                     const phone = contactFormMain.querySelector('#contact-phone').value.trim();
+                     const message = contactFormMain.querySelector('#contact-message').value.trim();
+                     if (!name || !phone || !message) {
+                         alert('Please fill in Name, Phone, and a Brief Description of your project.');
+                         return;
+                     }
+                     alert('Main contact form submitted (Simulation). Thank you! We will be in touch about your estimate.');
+                     contactFormMain.reset();
+                 });
+             }
+
+            // --- FAQ Accordion ---
+             const faqItems = document.querySelectorAll('.faq-item');
+             faqItems.forEach(item => {
+                const questionButton = item.querySelector('.faq-question');
+                const answerDiv = item.querySelector('.faq-answer');
+                const iconSpan = item.querySelector('.faq-icon');
+                if (questionButton && answerDiv && iconSpan) {
+                    questionButton.addEventListener('click', () => {
+                        const isOpening = !item.classList.contains('open');
+                        faqItems.forEach(otherItem => { // Close other open FAQs
+                            if (otherItem !== item && otherItem.classList.contains('open')) {
+                                otherItem.classList.remove('open');
+                                otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                                otherItem.querySelector('.faq-answer').setAttribute('aria-hidden', 'true');
+                                otherItem.querySelector('.faq-answer').style.maxHeight = null;
+                                otherItem.querySelector('.faq-icon').textContent = '+';
+                            }
+                        });
+
+                        item.classList.toggle('open');
+                        questionButton.setAttribute('aria-expanded', isOpening);
+                        answerDiv.setAttribute('aria-hidden', !isOpening);
+                        if (isOpening) {
+                            answerDiv.style.maxHeight = answerDiv.scrollHeight + 'px';
+                            iconSpan.textContent = '−';
+                        } else {
+                            answerDiv.style.maxHeight = null;
+                            iconSpan.textContent = '+';
+                        }
+                    });
+                    window.addEventListener('resize', () => {
+                        if (item.classList.contains('open')) {
+                            answerDiv.style.maxHeight = null;
+                            requestAnimationFrame(() => {
+                                answerDiv.style.maxHeight = answerDiv.scrollHeight + 'px';
+                            });
+                        }
+                    });
+                }
+            });
+
+        }); // End DOMContentLoaded
+    </script>
+
+</body>
+</html>
